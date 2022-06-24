@@ -62,6 +62,8 @@
                                         <li><a href="{% url 'department' %}">Department</a></li>
                                         
                                         <li><a href="{% url 'contact' %}">Contacts</a></li>
+                                        <li><a href="{% url 'appointment' %}">Contacts</a></li>
+
                                     </ul>
                                 </nav>
                             </div>
@@ -253,7 +255,7 @@
                                 <div class="dept_info">
                                     <h3>Dentist with surgical mask holding <br> scaler near patient</h3 >
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-                                    <a href="#" class="dep-btn">Appointment<i class="ti-arrow-right"></i></a>
+                                    <a href="" class="dep-btn">Appointment<i class="ti-arrow-right"></i></a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -522,38 +524,51 @@
                             </div>
                         </div>
                         <!--End Section Tittle  -->
-                        <form id="contact-form" action="#" method="POST">
+                        <form id="contact-form" action="{% url 'appointment'%}" method="POST">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-box user-icon mb-30">
-                                        <input type="text" name="name" placeholder="Name">
+                                        <input type="text" Required name="name" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-box email-icon mb-30">
-                                        <input type="text" name="email" placeholder="Phone">
+                                        <input type="text" Required name="number" placeholder="Phone">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 mb-30">
-                                    <div class="select-itms">
-                                        <select name="select" id="select2">
-                                            <option value="">Health Law</option>
-                                            <option value="">saiful islam</option>
-                                            <option value="">Arafath Miya</option>
-                                            <option value="">Shakil Miya</option>
-                                            <option value="">Tamim Sharker</option>
+                                    <div class="select-schedule">
+                                        <select  Required name="hr" id="select1">
+                                            <option value="Choose time">Choose time</option>
+                                            <option value="8:00 am to 10:00am">8:00 am to 10:00am</option>
+                                            <option value="11:00am to 1:00pm">11:00am to 1:00pm</option>
+                                            <option value="2:00pm to 4:00pm">2:00pm to 4:00pm</option>
+                                            <option value="8:00pm to 10:00pm">8:00pm to 10:00pm</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="select-date">
+                                        <select Required name="select-schedule" id="select2">
+                                            <option value="Choose Day">Choose Day</option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-box subject-icon mb-30">
-                                        <input type="Email" name="subject" placeholder="Email">
+                                        <input type="Email" Required name="email" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-box message-icon mb-65">
-                                        <textarea name="message" id="message" placeholder="Message"></textarea>
+                                        <textarea Required name="message" id="message" placeholder="Message"></textarea>
                                     </div>
                                     <div class="submit-info">
                                         <button class="btn" type="submit">Submit Now <i class="ti-arrow-right"></i> </button>
@@ -561,6 +576,7 @@
                                 </div>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>

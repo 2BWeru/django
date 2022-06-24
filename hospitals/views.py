@@ -22,14 +22,14 @@ def home(request):
 def doctor(request):
     return render(request ,'doctor.html')
 
-# @login_required(login_url='signin')
+@login_required(login_url='signin')
 def appointment(request):
     if request.method == "POST":
         name=request.POST['name']
         email=request.POST['email']
-        number=request.POST['number']
+        contact=request.POST['contact']
         select_schedule=request.POST['select-schedule']
-        select_date=request.POST['select-date']
+        # hr=request.POST['hr']
         message= request.POST['message']
 
         # send_mail(
@@ -51,12 +51,17 @@ def appointment(request):
             email, ['wamaithaweru19@gmail.com']
             )
 
-        send_mass_mail((message1, message2), fail_silently=False)
-        return render(request ,'appointment.html',{"select_date":select_date,"message":message,"name":name,"email":email,"select_schedule":select_schedule,"number":number})
+        send_mass_mail((message1, message2), )
 
+
+        
+        return render(request ,'appointment.html', {"message":message,"name":name,"email":email,"select_schedule":select_schedule,"contact":contact})
+        
+        
+        
     else:
 
-     return render(request ,'home.html',{})
+        return render(request ,'home.html')
 
 @login_required(login_url='signin')
 def department(request):
