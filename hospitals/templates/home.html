@@ -62,13 +62,15 @@
                                         <li><a href="{% url 'department' %}">Department</a></li>
                                         
                                         <li><a href="{% url 'contact' %}">Contacts</a></li>
-                                        <li><a href="{% url 'appointment' %}">Contacts</a></li>
 
                                     </ul>
                                 </nav>
                             </div>
                             <div class="header-right-btn f-right d-none d-lg-block ml-30">
                                 <a href="{% url 'login' %}" class="btn header-btn">Log in</a>
+                            </div>
+                            <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                                <a href="{% url 'logout' %}" class="btn header-btn">Log out</a>
                             </div>
                         </div>
                     </div>   
