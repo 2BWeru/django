@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,logout,login
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
-from django.core.mail import send_mass_mail
+from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import *
@@ -32,26 +32,23 @@ def appointment(request):
         hr=request.POST.get('hr')
         message= request.POST.get('message')
 
-        # send_mail(
-        #     name, #subject
-        #     "New appointment",  #message
-        #     email, #from email
-        #     ["wamaithaweru19@gmail.com"], #to email
-
-        # )
-        message1 = (
-            'Riverside Admin',
-            'New Appointment by ' , 
-             ['jaelweru5@gmail.com']
-            )
-        
-        message2 = (
+        send_mail(
             'Appointment Request', 
             'Your Appointment has been confirmed.For any inquiries contact us at +254716890612.Thank you for choosing Riverside Medical Center', 
             email, ['wamaithaweru19@gmail.com']
-            )
+             #to email
 
-        send_mass_mail((message1, message2), )
+        )
+        # message1 = (
+        #     'Riverside Admin',
+        #     'New Appointment by ' , 
+        #     email,['jaelweru5@gmail.com']
+        #     )
+        
+        # message2 = (
+            
+
+        # send_mass_mail((message1, message2), )
 
 
         
