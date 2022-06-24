@@ -25,12 +25,12 @@ def doctor(request):
 @login_required(login_url='signin')
 def appointment(request):
     if request.method == "POST":
-        name=request.POST['name']
-        email=request.POST['email']
-        contact=request.POST['contact']
-        select_schedule=request.POST['select-schedule']
-        # hr=request.POST['hr']
-        message= request.POST['message']
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        contact=request.POST.get('contact')
+        select_schedule=request.POST.get('select-schedule')
+        hr=request.POST.get('hr')
+        message= request.POST.get('message')
 
         # send_mail(
         #     name, #subject
@@ -42,12 +42,12 @@ def appointment(request):
         message1 = (
             'Riverside Admin',
             'New Appointment by ' , 
-            email, ['jaelweru5@gmail.com']
+             ['jaelweru5@gmail.com']
             )
         
         message2 = (
-            'Appointment', 
-            'Your Appointment has been confirmed and is set Incase of cancelation please contact as at +2541 134 890 .Thank you', 
+            'Appointment Request', 
+            'Your Appointment has been confirmed.For any inquiries contact us at +254716890612.Thank you for choosing Riverside Medical Center', 
             email, ['wamaithaweru19@gmail.com']
             )
 
@@ -55,7 +55,7 @@ def appointment(request):
 
 
         
-        return render(request ,'appointment.html', {"message":message,"name":name,"email":email,"select_schedule":select_schedule,"contact":contact})
+        return render(request ,'appointment.html', {"hr":hr,"message":message,"name":name,"email":email,"select_schedule":select_schedule,"contact":contact})
         
         
         
