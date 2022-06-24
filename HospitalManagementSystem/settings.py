@@ -57,7 +57,7 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
-
+DEBUG=False
 # Application definition
 
 INSTALLED_APPS = [
